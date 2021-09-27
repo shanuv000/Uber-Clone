@@ -4,15 +4,13 @@ import { StyleSheet, Text, View } from "react-native";
 import { Provider } from "react-redux";
 import HomeScreen from "./screens/HomeScreen";
 import { store } from "./store/store";
+import { SafeAreaProvider } from "react-native-safe-area-context";
+
 //redux
 
 //
-export default function App() {
-  return (
-    <Provider store={store}>
-      <HomeScreen />
-    </Provider>
-  );
+function App() {
+  return <HomeScreen />;
 }
 
 const styles = StyleSheet.create({
@@ -24,3 +22,13 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
 });
+
+export default () => {
+  return (
+    <Provider store={store}>
+      <SafeAreaProvider>
+        <App />
+      </SafeAreaProvider>
+    </Provider>
+  );
+};
