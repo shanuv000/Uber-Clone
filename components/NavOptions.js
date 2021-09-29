@@ -33,7 +33,9 @@ const NavOptions = () => {
       keyExtractor={(item) => item.id}
       horizontal
       renderItem={({ item }) => (
-        <TouchableOpacity style={tw`p-3 pl-6 pb-8 bg-gray-300 w-40 m-1`}>
+        <TouchableOpacity
+          style={tw`p-3 pl-6 pb-8 bg-gray-300 ios:w-48 	 m-1 rounded-lg`}
+        >
           <View>
             <Image
               style={{ width: 120, height: 120, resizeMode: "contain" }}
