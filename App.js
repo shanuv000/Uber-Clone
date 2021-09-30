@@ -5,12 +5,32 @@ import { Provider } from "react-redux";
 import HomeScreen from "./screens/HomeScreen";
 import { store } from "./store/store";
 import { SafeAreaProvider } from "react-native-safe-area-context";
+import "react-native-gesture-handler";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import MapScreen from "./screens/Mapscreens";
+
+// import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 //redux
 
 //
 function App() {
-  return <HomeScreen />;
+  const Stack = createNativeStackNavigator();
+  return (
+    <Stack.Navigator>
+      <Stack.Screen
+        name="HomeScreen"
+        component={HomeScreen}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="MapScreen"
+        component={MapScreen}
+        options={{ headerShown: false }}
+      />
+    </Stack.Navigator>
+  );
 }
 
 const styles = StyleSheet.create({
@@ -26,9 +46,11 @@ const styles = StyleSheet.create({
 export default () => {
   return (
     <Provider store={store}>
-      <SafeAreaProvider>
-        <App />
-      </SafeAreaProvider>
+      <NavigationContainer>
+        <SafeAreaProvider>
+          <App />
+        </SafeAreaProvider>
+      </NavigationContainer>
     </Provider>
   );
 };

@@ -1,8 +1,14 @@
 import React from "react";
-import { View, StyleSheet, Text } from "react-native";
+import { View, StyleSheet, Text, SafeAreaView } from "react-native";
 
 const Mapscreens = () => {
-  return <View></View>;
+  return (
+    <SafeAreaView>
+      <View>
+        <Text>Here is The map stuff.</Text>
+      </View>
+    </SafeAreaView>
+  );
 };
 
 const styles = StyleSheet.create({});
